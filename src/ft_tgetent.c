@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:14:41 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/17 15:09:15 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:10:42 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int32_t	load_term_entry(const char *line, const char *name)
 {
 	char	*term_name;
 
-	term_name = ft_strtok((char *)line, "|:");
+	term_name = ft_strtok((char *)(__intptr_t)line, "|:");
 	if (term_name && ft_strcmp(term_name, name) == 0)
 	{
 		g_termcap_data = ft_strdup(line);

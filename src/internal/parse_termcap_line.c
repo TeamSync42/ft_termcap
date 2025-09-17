@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:03:15 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/17 15:09:45 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/17 15:10:28 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	add_capability(char *token)
 		value = hash_sign + 1;
 	}
 	else
-		value = "1";
+		value = (char *)(__intptr_t)"1";
 	g_capabilities[g_num_capabilities].name = name;
 	g_capabilities[g_num_capabilities].value = value;
 	g_num_capabilities++;
