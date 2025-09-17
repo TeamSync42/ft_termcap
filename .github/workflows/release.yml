@@ -59,11 +59,11 @@ jobs:
             git log --pretty=format:"- %s (%h)" >> CHANGELOG.md
           fi
 
-          {
-            echo 'changelog<<EOF'
-            cat CHANGELOG.md
-            echo 'EOF'
-          } >> $GITHUB_OUTPUT
+          cat >> $GITHUB_OUTPUT << 'CHANGELOG_EOF'
+          changelog<<EOF
+          $(cat CHANGELOG.md)
+          EOF
+          CHANGELOG_EOF
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
