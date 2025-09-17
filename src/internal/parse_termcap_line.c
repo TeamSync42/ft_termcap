@@ -6,12 +6,11 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:03:15 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/17 16:27:28 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/17 19:24:14 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
 
 #include "core/string/ft_string.h"
 #include "internal/ft_termcap_internal.h"
@@ -65,7 +64,6 @@ static bool	cleanup(void)
 	return (false);
 }
 
-// TODO: recode strtok_r
 bool	parse_termcap_line(const char *line)
 {
 	char	*line_copy;
@@ -82,11 +80,11 @@ bool	parse_termcap_line(const char *line)
 	if (!line_copy)
 		return (cleanup());
 	save_ptr = NULL;
-	token = __strtok_r(NULL, ":", &save_ptr);
+	token = ft_strtok_r(NULL, ":", &save_ptr);
 	while (token != NULL && g_num_capabilities < MAX_CAPABILITIES)
 	{
 		add_capability(token);
-		token = __strtok_r(NULL, ":", &save_ptr);
+		token = ft_strtok_r(NULL, ":", &save_ptr);
 	}
 	free(line_copy);
 	return (g_num_capabilities > 0);
