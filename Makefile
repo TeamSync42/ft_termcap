@@ -31,6 +31,7 @@ C_RELEASE_FLAGS		= -O2 -funroll-loops -fomit-frame-pointer -DNDEBUG
 
 LIBFT_A				= libft/libft.a
 
+INTERNAL_FILES		= internal/parse_termcap_line.c
 SRCS_FILES			= ft_tgetent.c
 SRCS				:= $(addprefix $(SRC_DIR)/, $(SRCS_FILES))
 OBJS				= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
