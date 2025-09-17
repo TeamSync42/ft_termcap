@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 14:03:15 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/17 15:10:28 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:27:28 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "internal/ft_termcap_internal.h"
 
 t_ft_termcap_entry	*g_capabilities = NULL;
-int32_t				g_num_capabilities = 0;
+size_t				g_num_capabilities = 0;
 
 static void	free_termcap_entries(void)
 {
