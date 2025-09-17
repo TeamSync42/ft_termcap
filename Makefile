@@ -22,7 +22,7 @@ INC_FLAGS			= -I$(INC_DIR) -Ilibft/include
 CC					= cc
 AR					= ar
 RANLIB				= ranlib
-C_FLAGS				= -std=c17 -Wall -Wextra -Werror -pedantic -MMD -MP $(INC_FLAGS) -fPIC
+C_FLAGS				= -std=c17 -Wall -Wextra -Werror -pedantic -MMD -MP $(INC_FLAGS) -fPIC -D_DEFAULT_SOURCE
 C_DEBUG_FLAGS		= -Og -g3 -DDEBUG -Wshadow -Wconversion -Wstrict-prototypes \
 						-Wmissing-prototypes -Wmissing-declarations -Winline -Wsign-conversion \
 						-Wundef -Wcast-align -Wcast-qual -Wwrite-strings -Wuninitialized \
@@ -32,7 +32,8 @@ C_RELEASE_FLAGS		= -O2 -funroll-loops -fomit-frame-pointer -DNDEBUG
 LIBFT_A				= libft/libft.a
 
 INTERNAL_FILES		= internal/parse_termcap_line.c
-SRCS_FILES			= $(INTERNAL_FILES) ft_tgetent.c ft_tgetflag.c ft_tgetnum.c ft_tgetstr.c
+SRCS_FILES			= $(INTERNAL_FILES) ft_tgetent.c ft_tgetflag.c ft_tgetnum.c ft_tgetstr.c \
+ 						ft_tgoto.c ft_tputs.c
 SRCS				:= $(addprefix $(SRC_DIR)/, $(SRCS_FILES))
 OBJS				= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 DEPS				= $(patsubst $(SRC_DIR)/%.c, $(DEP_DIR)/%.d, $(SRCS))
