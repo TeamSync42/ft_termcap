@@ -59,9 +59,11 @@ jobs:
             git log --pretty=format:"- %s (%h)" >> CHANGELOG.md
           fi
 
-          echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          cat CHANGELOG.md >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          {
+            echo 'changelog<<EOF'
+            cat CHANGELOG.md
+            echo 'EOF'
+          } >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -79,25 +81,25 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test-release:
-      runs-on: ubuntu-latest
-      needs: create-release
+    runs-on: ubuntu-latest
+    needs: create-release
 
-      steps:
-        - name: Download release asset
-          run: |
-            curl -L -o ft_termcap-release.tar.gz \
-              "https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/ft_termcap-${{ github.ref_name }}.tar.gz"
+    steps:
+      - name: Download release asset
+        run: |
+          curl -L -o ft_termcap-release.tar.gz \
+            "https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/ft_termcap-${{ github.ref_name }}.tar.gz"
 
-        - name: Test release package
-          run: |
-            tar -xzf ft_termcap-release.tar.gz
-            cd ft_termcap-release
-
-            test -f libft_termcap.a
-            test -f libft_termcap.so
-            test -f libft_termcap_debug.a
-            test -f libft_termcap_debug.so
-            test -d include
-            test -f Makefile
-
-            echo "✅ Release package validation successful!"
+      - name: Test release package
+        run: |
+          tar -xzf ft_termcap-release.tar.gz
+          cd ft_termcap-release
+          
+          test -f libft_termcap.a
+          test -f libft_termcap.so
+          test -f libft_termcap_debug.a
+          test -f libft_termcap_debug.so
+          test -d include
+          test -f Makefile
+          
+          echo "✅ Release package validation successful!"
