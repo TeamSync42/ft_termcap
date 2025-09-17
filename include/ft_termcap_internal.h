@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:29:56 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/17 14:04:02 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/17 14:04:51 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define FT_TERMCAP_INTERNAL_H
 
 # include <stdbool.h>
+
+# ifndef MAX_CAPABILITIES
+#  define MAX_CAPABILITIES 256
+# endif // MAX_CAPABILITIES
 
 typedef struct s_ft_termcap_entry {
 	char	*name;
