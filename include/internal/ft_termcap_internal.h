@@ -6,7 +6,7 @@
 /*   By: rel-qoqu <rel-qoqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 13:29:56 by rel-qoqu          #+#    #+#             */
-/*   Updated: 2025/09/17 17:23:10 by rel-qoqu         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:26:17 by rel-qoqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_ft_termcap_entry {
 
 extern t_ft_termcap_entry	*g_capabilities;
 extern size_t				g_num_capabilities;
-extern  char				*g_termcap_data;
+extern char					*g_termcap_data;
 
 bool	parse_termcap_line(const char *line);
 
